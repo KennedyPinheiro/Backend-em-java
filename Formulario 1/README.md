@@ -37,3 +37,21 @@
         </tr>
     </tbody>
 </table>
+
+## Definição de Variaveis 
+
+Em java , diferente do javaScript as variaveis devem ser tipadas em sua definição , onde  inserimos o tipo de informção que aquela variável vai receber no momento que à definimos.
+
+<strong> JavaScript
+</strong>
+
+```bash 
+ let nome = "Kennedy"
+```
+
+<strong> Java
+</strong>
+
+```bash 
+ String nome = "Kennedy"
+```

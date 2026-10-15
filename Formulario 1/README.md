@@ -55,3 +55,50 @@ Em java , diferente do javaScript as variaveis devem ser tipadas em sua definiç
 ```bash 
  String nome = "Kennedy"
 ```
+<p>
+Conhecendo os principais tipos de dados
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+            Tipo
+            </th>
+            <th>
+            Utilização
+            </th>
+            <th>
+            Exemplo
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td><code>String</code></td>
+                <td>Permite que o método seja acessado publicamente.</td>
+                <td>"Kennedy"</td>
+            </tr>
+            <tr>
+                <td><code>int</code></td>
+                <td>Números inteiros</td>
+                <td>13</td>
+            </tr>
+            <tr>
+                <td><code>double</code></td>
+                <td>Números decimais</td>
+                <td>1.75</td>
+            </tr>
+            <tr>
+                <td><code>boolean</code></td>
+                <td>Valores verdadeiro ou falso</td>
+                <td>true</td>
+            </tr>
+            <tr>
+                <td><code>char</code></td>
+                <td>Um único caractere</td>
+                <td>'k'</td>   
+            </tr>
+        </tbody>
+
+</table>

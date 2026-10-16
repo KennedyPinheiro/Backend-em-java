@@ -452,3 +452,309 @@ switch (opcao) {
         System.out.println("Inválido");
 }
 ```
+
+# Laços de repetição em Java
+
+## O laço for
+
+O for é utilizado quando precisamos repetir uma operação e temos uma condição que determina quando a repetição deve terminar.
+
+```bash
+public static void main(String[] args) {
+
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(i);
+        }
+
+    }
+```
+
+logica do for → for (inicialização; condição; atualização)
+
+### Inicialização
+int i = 1;
+    
+Criamos uma variável chamada i e iniciamos seu valor em 1.
+Essa variável funciona como um contador.
+
+**Condição** → i <= 5;
+
+Antes de cada execução do bloco, o Java verifica se i é menor ou igual a 5.
+
+Se a condição for verdadeira, o bloco será executado. Se for falsa, o laço terminará.
+
+**Atualização** → i++
+
+Ao terminar uma execução do bloco, o Java incrementa i em uma unidade.
+
+acompanhando o for
+
+<table>
+    <thead>
+        <tr>
+            <th>Iteração</th>
+            <th>Valor de <code>i</code></th>
+            <th><code>i &lt;= 5</code></th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td><code>true</code></td>
+            <td>Imprime 1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2</td>
+            <td><code>true</code></td>
+            <td>Imprime 2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>3</td>
+            <td><code>true</code></td>
+            <td>Imprime 3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>4</td>
+            <td><code>true</code></td>
+            <td>Imprime 4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>5</td>
+            <td><code>true</code></td>
+            <td>Imprime 5</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>6</td>
+            <td><code>false</code></td>
+            <td>Encerra o laço</td>
+        </tr>
+    </tbody>
+</table>
+
+**Importante:** o valor de i chega a 6, mas o número 6 não é impresso porque a condição é verificada antes da execução do bloco.
+
+### Quando usar for?
+
+O for costuma ser uma boa escolha quando sabemos quantas vezes queremos repetir uma operação.
+
+**Exemplos:**
+<ul>
+    <li>Exibir os números de 1 até 100.</li>
+    <li>Percorrer uma sequência de posições.</li>
+    <li>Calcular a tabuada de um número.</li>
+    <li>Repetir uma operação um número específico de vezes.</li>
+</ul>
+
+## O laço while
+
+O while significa "enquanto".
+
+Ele repete um bloco de código enquanto determinada condição for verdadeira.
+
+A diferença está na estrutura.
+
+No while, normalmente declaramos o contador antes do laço e fazemos sua atualização dentro do bloco.
+
+**int contador = 1;** → Criamos o contador e iniciamos seu valor em 1.
+
+**while (contador <= 5) {** → O Java verifica se o contador é menor ou igual a 5.
+
+**contador++;** → O contador aumenta em uma unidade.
+
+### Quando usar while?
+
+Ele é especialmente útil quando não sabemos antecipadamente quantas repetições serão necessárias.
+**Exemplos:**
+<ul>
+    <li>Repetir uma operação até que uma condição seja satisfeita.</li>
+    <li>Processar dados enquanto houver registros.</li>
+    <li>Manter um menu em execução até o usuário escolher sair.</li>
+    <li>Continuar uma tentativa enquanto o usuário não informar um valor válido.</li>
+</ul>
+ 
+### O laço do-while
+
+O do-while é semelhante ao while, mas possui uma diferença muito importante:
+
+O bloco é executado pelo menos uma vez, mesmo que a condição seja falsa.
+
+### Quando usar do-while?
+
+Ele é útil quando precisamos executar uma operação pelo menos uma vez.
+
+Um exemplo clássico é a exibição de um menu:
+```bash
+===== MENU =====
+
+1 - Cadastrar usuário
+2 - Listar usuários
+3 - Sair
+```
+
+## Comparando os três laços
+
+<table>
+    <thead>
+        <tr>
+            <th>Característica</th>
+            <th><code>for</code></th>
+            <th><code>while</code></th>
+            <th><code>do-while</code></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Verifica a condição antes de executar?</td>
+            <td>Sim</td>
+            <td>Sim</td>
+            <td>Não</td>
+        </tr>
+        <tr>
+            <td>Executa pelo menos uma vez?</td>
+            <td>Não</td>
+            <td>Não</td>
+            <td>Sim</td>
+        </tr>
+        <tr>
+            <td>Inicialização geralmente fica na estrutura?</td>
+            <td>Sim</td>
+            <td>Não</td>
+            <td>Não</td>
+        </tr>
+        <tr>
+            <td>Atualização geralmente fica na estrutura?</td>
+            <td>Sim</td>
+            <td>Não</td>
+            <td>Não</td>
+        </tr>
+        <tr>
+            <td>Ideal para</td>
+            <td>Repetições controladas por contador.</td>
+            <td>Repetições condicionais.</td>
+            <td>Repetições que devem acontecer ao menos uma vez.</td>
+        </tr>
+    </tbody>
+</table>
+
+## Contadores e acumuladores
+
+### Contadores
+Um contador acompanha quantas vezes determinada operação aconteceu.
+
+```bash
+int contador = 0;
+
+contador++;
+contador++;
+contador++;
+
+System.out.println(contador);
+```
+A cada incremento, o contador aumenta em uma unidade.
+
+### Acumuladores
+Um acumulador guarda um valor que vai sendo atualizado, geralmente por meio de somas.
+```bash
+int soma = 0;
+
+soma += 10;
+soma += 20;
+soma += 30;
+
+System.out.println(soma);
+```
+A variável soma acumula os valores.
+
+## Controlando o laço com break
+
+Às vezes, queremos interromper uma repetição antes de a condição se tornar falsa.
+
+Para isso, podemos utilizar break.
+
+```bash
+public class Main {
+
+    public static void main(String[] args) {
+
+        for (int i = 1; i <= 10; i++) {
+
+            if (i == 5) {
+                break;
+            }
+
+            System.out.println(i);
+
+        }
+
+    }
+}
+```
+
+Quando i chega a 5, a condição do if é verdadeira.
+
+**break;**
+
+interrompe imediatamente o laço.
+
+### Quando usar break?
+Ele pode ser útil quando:
+<ul>
+    <li>Encontramos o elemento que estávamos procurando.</li>
+    <li>Uma condição exige a interrupção da operação.</li>
+    <li>O usuário escolhe sair de um menu.</li>
+    <li>Não faz sentido continuar processando os dados.</li>
+</ul>
+
+## Pulando uma repetição com continue
+Diferentemente do break, o continue não encerra o laço inteiro. Ele pula a parte restante da iteração atual e passa para a próxima.
+```bash
+public class Main {
+
+    public static void main(String[] args) {
+
+        for (int i = 1; i <= 5; i++) {
+
+            if (i == 3) {
+                continue;
+            }
+
+            System.out.println(i);
+
+        }
+
+    }
+}
+```
+Quando i vale 3, o programa executa continue e pula o comando de impressão daquela iteração.
+
+O laço continua normalmente depois disso.
+
+### Diferença entre break e continue
+<table>
+    <thead>
+        <tr>
+            <th>Comando</th>
+            <th>Comportamento</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>break</code></td>
+            <td>Encerra o laço imediatamente.</td>
+        </tr>
+        <tr>
+            <td><code>continue</code></td>
+            <td>Pula a iteração atual e segue para a próxima.</td>
+        </tr>
+    </tbody>
+</table>
+
+**Atenção:** dentro de um while, tenha cuidado com o continue. Se ele fizer o programa pular a atualização do contador, você pode criar um laço infinito.
+

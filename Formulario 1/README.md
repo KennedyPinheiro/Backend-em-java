@@ -906,3 +906,59 @@ public class Main {
     }
 }
 ``` 
+
+### A diferença entre next() e nextLine()
+
+Essa diferença é muito importante!
+Os dois métodos leem textos, mas se comportam de maneiras distintas.
+```bash
+System.out.print("Digite seu nome: ");
+String nome = scanner.next();
+
+System.out.println("Nome: " + nome);
+``` 
+Se o usuario inserir mais de um nome , como **Kennedy Pinheiro** a resposta será somente o primeiro nome.
+
+Isso acontece porque next() lê apenas o próximo token, encerrando a leitura quando encontra um espaço em branco.
+```bash
+System.out.print("Digite seu nome completo: ");
+String nome = scanner.nextLine();
+
+System.out.println("Nome: " + nome);
+``` 
+Diferente do next(), O nextLine() lê o restante da linha, incluindo os espaços entre as palavras.
+
+**Qual devo utilizar?**
+
+<table>
+    <thead>
+        <tr>
+            <th>Situação</th>
+            <th>Método recomendado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ler uma palavra isolada</td>
+            <td><code>next()</code></td>
+        </tr>
+        <tr>
+            <td>Ler nome completo</td>
+            <td><code>nextLine()</code></td>
+        </tr>
+        <tr>
+            <td>Ler endereço completo</td>
+            <td><code>nextLine()</code></td>
+        </tr>
+        <tr>
+            <td>Ler idade inteira</td>
+            <td><code>nextInt()</code></td>
+        </tr>
+        <tr>
+            <td>Ler nota decimal</td>
+            <td><code>nextDouble()</code></td>
+        </tr>
+    </tbody>
+</table>
+
+**Dica:** quando precisar ler nomes completos, endereços ou outras informações que possam conter espaços, prefira nextLine().

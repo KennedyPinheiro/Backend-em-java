@@ -758,3 +758,43 @@ O laço continua normalmente depois disso.
 
 **Atenção:** dentro de um while, tenha cuidado com o continue. Se ele fizer o programa pular a atualização do contador, você pode criar um laço infinito.
 
+# Scanner
+## Conhecendo o Scanner
+O Scanner é uma classe da biblioteca padrão do Java que permite ler dados de uma fonte de entrada, como o teclado.
+ funciona como  input do python, ele irá captar a resposta de teclado.
+
+### Importando a classe
+```bash
+import java.util.Scanner;
+```
+Essa linha permite utilizar a classe Scanner sem precisar escrever seu nome completo, java.util.Scanner, toda vez.
+
+### Criando o Scanner
+```bash
+Scanner scanner = new Scanner(System.in);
+```
+
+Vamos separar os elementos:
+
+<ul>
+    <li><code>Scanner</code>: tipo da variável.</li>
+    <li><code>scanner</code>: nome da variável.</li>
+    <li><code>new Scanner(...)</code>: cria o objeto.</li>
+    <li><code>System.in</code>: indica que queremos ler dados da entrada padrão, normalmente o teclado.</li>
+</ul>
+
+### Lendo o nome
+
+```bash
+String nome = scanner.nextLine();
+```
+O método nextLine() lê uma linha de texto digitada pelo usuário.
+
+### Fechando o Scanner
+
+```bash
+scanner.close();
+``` 
+Esse comando fecha o Scanner e libera o recurso associado a ele.
+
+**Atenção:** fechar um Scanner criado sobre System.in também fecha a entrada padrão. Em aplicações maiores, especialmente quando vários componentes compartilham essa entrada, é importante controlar cuidadosamente quando ela será fechada.

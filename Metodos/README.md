@@ -46,3 +46,71 @@ Isso favorece três princípios importantes:
 - Reutilização: aproveitamos o mesmo código em diferentes lugares.
 - Organização: cada método pode representar uma responsabilidade específica.
 - Manutenção: uma alteração na lógica pode ser feita em um único lugar.
+
+## Anatomia de um método Java
+
+``` bash
+public static int somar(int numero1, int numero2) {
+    int resultado = numero1 + numero2;
+
+    return resultado;
+}
+``` 
+Esse método recebe dois números inteiros, soma os valores e devolve o resultado.
+<table>
+    <thead>
+        <tr>
+            <th>Parte</th>
+            <th>Significado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>public</code></td>
+            <td>Define que o método pode ser acessado de outras classes, respeitadas as regras de acesso.</td>
+        </tr>
+        <tr>
+            <td><code>static</code></td>
+            <td>Permite chamar o método pela classe, sem precisar criar uma instância dela.</td>
+        </tr>
+        <tr>
+            <td><code>int</code></td>
+            <td>Define o tipo de valor que o método retorna.</td>
+        </tr>
+        <tr>
+            <td><code>somar</code></td>
+            <td>É o nome do método.</td>
+        </tr>
+        <tr>
+            <td><code>int numero1</code></td>
+            <td>Primeiro parâmetro, que recebe um número inteiro.</td>
+        </tr>
+        <tr>
+            <td><code>int numero2</code></td>
+            <td>Segundo parâmetro, que recebe um número inteiro.</td>
+        </tr>
+    </tbody>
+</table>
+
+## Como os parâmetros e argumentos funcionam?
+
+O parâmetro **exemplo** funciona como uma variável que recebe um valor quando o método é chamado.
+
+O valor **"x"** é o argumento passado na chamada.
+
+Portanto:
+- Parâmetro: a variável declarada na definição do método.
+- Argumento: o valor fornecido quando chamamos o método.
+### Métodos com vários parâmetros
+```bash 
+public static void apresentarUsuario(String nome, int idade) {
+    System.out.println("Nome: " + nome);
+    System.out.println("Idade: " + idade);
+}
+```
+Nesse exemplo, o método recebe dois parâmetros:
+1. String nome
+2. int idade
+Os argumentos devem corresponder aos tipos e à ordem dos parâmetros.
+
+**Uma boa prática:** escolha nomes de parâmetros que deixem claro o que o método espera receber.

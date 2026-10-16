@@ -962,3 +962,56 @@ Diferente do next(), O nextLine() lê o restante da linha, incluindo os espaços
 </table>
 
 **Dica:** quando precisar ler nomes completos, endereços ou outras informações que possam conter espaços, prefira nextLine().
+
+##  O problema clássico: nextInt() seguido de nextLine()
+
+```bash
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite sua idade: ");
+        int idade = scanner.nextInt();
+
+        System.out.print("Digite seu nome completo: ");
+        String nome = scanner.nextLine();
+
+        System.out.println("Idade: " + idade);
+        System.out.println("Nome: " + nome);
+
+        scanner.close();
+    }
+}
+``` 
+O programa aparentemente pulou a pergunta do nome!
+Mas por quê?
+
+O método:
+```bash
+int idade = scanner.nextInt();
+```
+lê o número inteiro, mas não consome a quebra de linha que ficou pendente.
+```bash
+String nome = scanner.nextLine();
+``` 
+o nextLine() encontra essa quebra de linha e termina imediatamente, retornando uma string vazia.
+
+Por isso, a variável nome fica vazia.
+
+Uma solução simples é adicionar um nextLine() logo depois do nextInt():
+```bash
+System.out.print("Digite sua idade: ");
+int idade = scanner.nextInt();
+
+scanner.nextLine(); // Consome a quebra de linha pendente.
+
+System.out.print("Digite seu nome completo: ");
+String nome = scanner.nextLine();
+```
+**Regra prática:** quando utilizar um método como nextInt() ou nextDouble() e depois precisar ler uma linha inteira com nextLine(), lembre-se de consumir a quebra de linha pendente.
+Isso não significa que você precisa adicionar um nextLine() extra em todas as situações. O cuidado é necessário quando existe uma quebra de linha não consumida antes da leitura da linha completa.
+

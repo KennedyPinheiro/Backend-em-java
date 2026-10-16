@@ -312,3 +312,143 @@ public class Main {
         </tr>
     </tbody>
 </table>
+
+
+<hr>
+
+# Condicionais em Java
+
+## A estrutura If
+
+<p>A palavra-chave if significa "se".</p>
+
+<p>Ela permite executar um bloco de código somente quando determinada condição for verdadeira.</p>
+
+<p><strong>Regra importante: </strong> em Java, a condição do if precisa resultar em um valor booleano (true ou false).</p>
+
+```bash
+if (idade >= 18) {
+    // Código
+}
+```
+Isso funciona porque idade >= 18 é uma expressão booleana.
+
+Já isto não funciona:
+```bash
+if (idade) {
+    System.out.println("Olá");
+}
+```
+## A estrutura if/else
+
+E se quisermos executar uma ação quando a condição for verdadeira e outra quando for falsa?
+
+É aí que entra o else, que significa "senão"
+
+```bash
+public class Main {
+
+    public static void main(String[] args) {
+
+        int idade = 16;
+
+        if (idade >= 18) {
+            System.out.println("Você é maior de idade!");
+        } else {
+            System.out.println("Você é menor de idade!");
+        }
+
+    }
+}
+```
+
+## A estrutura if/else if/else
+
+Possuimos uma sequencia de condições que uma apos a outra , assim que uma condição é identificada como falsa , passa para seguinte,
+algo que poderia ser feito com uma sequencia de if , escolhendo qual dentre eles é executado possuimos a estrutura  **else if**.
+
+## Condicionais dentro de condicionais
+
+Java também permite colocar um if dentro de outro if. Isso é conhecido como condicional aninhada.
+Imagine um sistema que verifica se uma pessoa pode acessar uma área administrativa.
+
+se uma das condições for a necessidade de autentição e a seguinte dentro dela for um nivel de acesso do usuario a resposta final depende de ambas as condições serem verdadeiras.
+se uma das condições for falsa a resposta do else correpondende que será informada.
+
+A escolha entre condicionais aninhadas e operadores lógicos depende do comportamento que você deseja implementar.
+Em um sistema real, também seria necessário validar as permissões no backend. Esconder uma tela no frontend, por exemplo, não é suficiente para proteger uma funcionalidade.
+
+## A estrutura switch
+
+Além do if/else, Java possui a estrutura switch.
+Ela é útil quando queremos executar diferentes ações de acordo com o valor de uma variável ou expressão.
+Imagine um sistema de atendimento com um menu de opções:
+
+```bash
+public class Main {
+
+    public static void main(String[] args) {
+
+        int opcao = 2;
+
+        switch (opcao) {
+
+            case 1:
+                System.out.println("Cadastrar usuário.");
+                break;
+
+            case 2:
+                System.out.println("Consultar usuários.");
+                break;
+
+            case 3:
+                System.out.println("Excluir usuário.");
+                break;
+
+            default:
+                System.out.println("Opção inválida.");
+
+        }
+
+    }
+}
+```
+### Como funciona?
+
+switch (opcao)
+
+Indica qual valor será analisado.
+
+case 1, case 2, case 3
+
+Cada case representa uma alternativa.
+
+break
+
+Encerra a execução do switch naquele ponto, evitando que o programa continue executando os próximos casos.
+default
+
+É a alternativa executada quando nenhum dos casos corresponde ao valor analisado.
+
+#### Quando utilizar if e quando utilizar switch?
+
+Use if/else quando precisar avaliar condições, intervalos ou expressões lógicas:
+
+```bash
+if (idade >= 18) {
+    System.out.println("Maior de idade.");
+}
+```
+Use switch quando quiser selecionar uma alternativa com base em valores específicos:
+```bash
+switch (opcao) {
+    case 1:
+        System.out.println("Cadastrar");
+        break;
+    case 2:
+        System.out.println("Consultar");
+        break;
+    default:
+        System.out.println("Inválido");
+}
+```

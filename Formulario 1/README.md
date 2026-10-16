@@ -1015,3 +1015,9 @@ String nome = scanner.nextLine();
 **Regra prática:** quando utilizar um método como nextInt() ou nextDouble() e depois precisar ler uma linha inteira com nextLine(), lembre-se de consumir a quebra de linha pendente.
 Isso não significa que você precisa adicionar um nextLine() extra em todas as situações. O cuidado é necessário quando existe uma quebra de linha não consumida antes da leitura da linha completa.
 
+O método nextBoolean() reconhece os valores true e false, sem diferenciar maiúsculas de minúsculas.
+
+Ele não reconhece automaticamente respostas como sim e não.
+
+Se o usuário digitar sim, por exemplo, ocorrerá uma InputMismatchException.
+Em um sistema real, podemos criar uma lógica para aceitar respostas mais naturais.

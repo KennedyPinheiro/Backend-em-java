@@ -798,3 +798,111 @@ scanner.close();
 Esse comando fecha o Scanner e libera o recurso associado a ele.
 
 **Atenção:** fechar um Scanner criado sobre System.in também fecha a entrada padrão. Em aplicações maiores, especialmente quando vários componentes compartilham essa entrada, é importante controlar cuidadosamente quando ela será fechada.
+
+## Lendo diferentes tipos de dados
+
+O Scanner possui métodos diferentes para ler cada tipo de informação.
+
+<table>
+    <thead>
+        <tr>
+            <th>Método</th>
+            <th>Tipo de dado retornado</th>
+            <th>Exemplo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>nextLine()</code></td>
+            <td><code>String</code></td>
+            <td>Nome completo</td>
+        </tr>
+        <tr>
+            <td><code>next()</code></td>
+            <td><code>String</code></td>
+            <td>Uma palavra</td>
+        </tr>
+        <tr>
+            <td><code>nextInt()</code></td>
+            <td><code>int</code></td>
+            <td>Idade</td>
+        </tr>
+        <tr>
+            <td><code>nextLong()</code></td>
+            <td><code>long</code></td>
+            <td>Número inteiro grande</td>
+        </tr>
+        <tr>
+            <td><code>nextDouble()</code></td>
+            <td><code>double</code></td>
+            <td>Nota ou altura</td>
+        </tr>
+        <tr>
+            <td><code>nextFloat()</code></td>
+            <td><code>float</code></td>
+            <td>Número decimal</td>
+        </tr>
+        <tr>
+            <td><code>nextBoolean()</code></td>
+            <td><code>boolean</code></td>
+            <td><code>true</code> ou <code>false</code></td>
+        </tr>
+    </tbody>
+</table>
+
+### Lendo um número inteiro
+```bash
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite sua idade: ");
+        int idade = scanner.nextInt();
+
+        System.out.println("Sua idade é " + idade + " anos.");
+
+        scanner.close();
+    }
+}
+``` 
+O método nextInt() lê um número inteiro e retorna um valor do tipo int.
+
+Se o usuário digitar um texto que não represente um inteiro válido, como vinte, o programa lançará uma exceção chamada InputMismatchException, caso ela não seja tratada.
+
+### Lendo um número decimal
+```bash
+System.out.print("Digite sua nota: ");
+double nota = scanner.nextDouble();
+
+System.out.println("Sua nota é " + nota);
+``` 
+
+o resultado dependerá da configuração regional utilizada pelo Scanner.
+No Brasil, a configuração padrão da máquina geralme
+nte reconhece a vírgula como separador decimal. Em ambientes configurados para outra região, pode ser necessário digitar 8.5
+
+Para deixar o comportamento explícito, podemos configurar o Scanner para usar a localidade brasileira:
+```bash
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        scanner.useLocale(Locale.forLanguageTag("pt-BR"));
+
+        System.out.print("Digite sua nota: ");
+        double nota = scanner.nextDouble();
+
+        System.out.println("Nota informada: " + nota);
+
+        scanner.close();
+    }
+}
+``` 

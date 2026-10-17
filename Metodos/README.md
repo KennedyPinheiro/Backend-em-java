@@ -474,3 +474,64 @@ O método recebe "Exemplo" e o armazena no atributo nome.
 Nesse caso, o método não apenas atribui um valor: ele protege uma regra da classe.
 
 Esse é um exemplo prático de como métodos ajudam a controlar o comportamento dos objetos.
+
+## Métodos, parâmetros e variáveis locais
+Outro conceito importante é entender onde uma variável pode ser utilizada.
+
+```bash 
+public static int calcularDobro(int numero) {
+
+    int resultado = numero * 2;
+
+    return resultado;
+}
+```
+Embora ambas sejam variáveis, elas possuem responsabilidades diferentes.
+- numero é um parâmetro do método.
+- resultado é uma variável local, declarada dentro do método.
+  
+As duas podem ser utilizadas dentro de calcularDobro().
+Entretanto, não podemos acessar diretamente resultado de fora desse método.
+
+```bash 
+public static void main(String[] args) {
+
+    calcularDobro(10);
+
+    System.out.println(resultado);
+}
+```
+
+Esse código não compila, porque resultado não foi declarado no escopo de main().
+
+```bash 
+public static void main(String[] args) {
+
+    int resultado = calcularDobro(10);
+
+    System.out.println(resultado);
+}
+```
+
+Aqui recebemos o valor do retorno.
+
+### O que é escopo?
+Escopo é a região do código na qual uma variável pode ser acessada.
+
+```bash
+public static int calcularDobro(int numero) {
+
+    int resultado = numero * 2;
+
+    return resultado;
+}
+```
+O parâmetro numero e a variável local resultado pertencem ao escopo do método.
+
+Quando o método termina, essas variáveis locais deixam de estar disponíveis para novas instruções executadas fora dele.
+
+Isso não significa que todos os objetos criados dentro do método sejam necessariamente destruídos naquele instante. 
+
+Significa que aquelas variáveis locais não podem ser acessadas diretamente fora de seu escopo.
+
+**Regra prática:** quando precisar compartilhar um resultado entre métodos, avalie se deve retorná-lo, passá-lo como parâmetro ou armazená-lo em um atributo de um objeto. A escolha depende da responsabilidade de cada parte do programa.

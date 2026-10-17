@@ -340,3 +340,80 @@ public static double calcular(int numero) {
 }
 ```
 As duas assinaturas possuem o mesmo nome e os mesmos parâmetros. O Java não consegue distingui-las pela chamada.
+
+
+## Métodos static e métodos de instância
+
+
+```bash
+public class Usuario {
+
+    String nome;
+    int idade;
+
+    public void apresentar() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+    }
+}
+```
+O método apresentar() não possui static.
+
+Isso significa que ele é um método de instância.
+
+Ele pode acessar os atributos nome e idade do objeto ao qual pertence.
+
+### Como utilizar esse método?
+ Dentro de utra classe , definimos usuario com o Tipo Usuario(tipo da instancia criada) , recebendo new Usuario(), a espressão cria uma instancia da classe Usuario, a variavel armazena uma referencia a esse objeto. 
+
+com:
+```bash
+usuario.nome 
+usuario.idade
+```
+Fazemos a definição dos atributos utilizando a variavel.
+
+**Chamamos seu método:**
+```bash
+usuario.apresentar();
+```
+O método acessa os atributos do objeto e exibe seus valores.
+
+### Qual é a diferença entre static e métodos de instância?
+<table>
+    <thead>
+        <tr>
+            <th>Característica</th>
+            <th>Método <code>static</code></th>
+            <th>Método de instância</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Pertence a</td>
+            <td>Classe</td>
+            <td>Instância da classe</td>
+        </tr>
+        <tr>
+            <td>Precisa criar um objeto para ser chamado?</td>
+            <td>Não</td>
+            <td>Sim, para uma chamada normal</td>
+        </tr>
+        <tr>
+            <td>Acesso direto a atributos de instância</td>
+            <td>Não</td>
+            <td>Sim</td>
+        </tr>
+        <tr>
+            <td>Exemplo</td>
+            <td><code>Calculadora.somar(2, 3)</code></td>
+            <td><code>usuario.apresentar()</code></td>
+        </tr>
+    </tbody>
+</table>
+
+**Dica:** não coloque static em todos os métodos automaticamente. 
+
+Utilize-o quando o comportamento realmente pertencer à classe e não depender do estado de um objeto específico.
+
+No exemplo de Usuario, cada pessoa possui seu próprio nome e sua própria idade. Portanto, faz sentido que apresentar() seja um método de instância.

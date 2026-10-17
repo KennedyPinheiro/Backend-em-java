@@ -195,3 +195,18 @@ public static boolean ehMaiorDeIdade(int idade) {
     return idade >= 18;
 }
 ```
+##  Métodos com estruturas condicionais
+
+Um método pode conter if, else, switch e outras estruturas de controle.
+
+```bash 
+public static boolean senhaValida(String senha) {
+
+    if (senha == null) {
+        return false;
+    }
+
+    return senha.length() >= 8;
+}
+```
+Quando uma condição já resulta em true ou false, experimente retorná-la diretamente. Isso ajuda a escrever código mais simples.

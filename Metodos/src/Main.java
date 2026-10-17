@@ -4,8 +4,8 @@ public class Main {
 
         Usuario usuario = new Usuario();
 
-        usuario.nome = "Kennedy";
-        usuario.idade = 22;
+        usuario.definirNome("Kennedy");
+        usuario.definirIdade(22);
 
         usuario.apresentar();
     }

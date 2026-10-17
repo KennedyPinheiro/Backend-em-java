@@ -1,4 +1,3 @@
-
 public class Usuario {
 
     private String nome;
@@ -27,4 +26,8 @@ public class Usuario {
         return idade;
     }
 
+    public void apresentar() {
+        System.out.println("Nome: " + this.nome);
+        System.out.println("Idade: " + this.idade);
+    }
 }

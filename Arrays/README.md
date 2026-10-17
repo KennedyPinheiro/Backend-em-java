@@ -273,3 +273,60 @@ Como o array possui três posições, a condição será verdadeira para i = 0, 
 Quando i chegar a 3, o laço será encerrado.
 
 Em cada repetição, acessamos uma posição diferente.
+
+## Percorrendo arrays com for-each
+Existe outra forma de percorrer arrays em Java: o for-each.
+
+Ele é especialmente útil quando queremos acessar todos os elementos sem precisar controlar os índices manualmente.
+
+```bash 
+String[] nomes = {"Maria", "João", "Carlos"};
+
+for (String nome : nomes) {
+    System.out.println(nome);
+}
+```
+Podemos interpretá-la assim:
+
+Para cada elemento do array nomes, coloque seu valor na variável nome e execute o bloco de código.
+
+A estrutura pode ser representada assim:
+```bash 
+for (Tipo variavel : array) {
+    // Código executado para cada elemento
+}
+```
+### Quando usar for e quando usar for-each?
+Use o for tradicional quando precisar trabalhar diretamente com os índices.
+```bash 
+for (int i = 0; i < numeros.length; i++) {
+    System.out.println("Índice: " + i);
+    System.out.println("Valor: " + numeros[i]);
+}
+```
+Já o for-each é uma boa opção quando você precisa apenas percorrer os elementos.
+
+```bash 
+for (int numero : numeros) {
+    System.out.println(numero);
+}
+```
+Uma observação importante: alterar a variável do for-each não substitui automaticamente o elemento do array quando se trata de tipos primitivos.
+```bash 
+int[] numeros = {1, 2, 3};
+
+for (int numero : numeros) {
+    numero = 0;
+}
+```
+Ao final, o array continuará contendo {1, 2, 3}.
+
+Isso acontece porque numero recebe uma cópia do valor de cada elemento.
+
+Se quiser modificar as posições de um array de número
+```bash 
+for (int i = 0; i < numeros.length; i++) {
+    numeros[i] = 0;
+}
+```
+

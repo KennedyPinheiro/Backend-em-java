@@ -535,3 +535,113 @@ Isso não significa que todos os objetos criados dentro do método sejam necessa
 Significa que aquelas variáveis locais não podem ser acessadas diretamente fora de seu escopo.
 
 **Regra prática:** quando precisar compartilhar um resultado entre métodos, avalie se deve retorná-lo, passá-lo como parâmetro ou armazená-lo em um atributo de um objeto. A escolha depende da responsabilidade de cada parte do programa.
+
+## Como organizar métodos em um projeto Java?
+Imagine um sistema que possui uma calculadora.
+
+Uma estrutura simples seria:
+
+Backend-em-java/    
+└── src/    
+    ├── Main.java   
+    └── Calculadora.java
+
+O arquivo Calculadora.java pode conter:
+
+```bash 
+public class Calculadora {
+
+    public static int somar(int a, int b) {
+        return a + b;
+    }
+
+    public static int subtrair(int a, int b) {
+        return a - b;
+    }
+
+    public static int multiplicar(int a, int b) {
+        return a * b;
+    }
+
+    public static double dividir(double a, double b) {
+
+        if (b == 0) {
+            throw new IllegalArgumentException(
+                    "Não é possível dividir por zero."
+            );
+        }
+
+        return a / b;
+    }
+}
+```
+
+Já o arquivo Main.java pode utilizar os métodos:
+```bash 
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println(Calculadora.somar(10, 5));
+
+        System.out.println(Calculadora.subtrair(10, 5));
+
+        System.out.println(Calculadora.multiplicar(10, 5));
+
+        System.out.println(Calculadora.dividir(10, 5));
+    }
+}
+```
+Observe que Main não precisa conhecer os detalhes de como cada operação foi implementada. Ele simplesmente utiliza os métodos disponibilizados pela classe Calculadora.
+
+Esse é um primeiro passo para compreender como dividir responsabilidades em aplicações maiores.
+
+E como isso se relaciona com Spring Boot?
+
+Em um backend com Spring Boot, normalmente encontramos diferentes componentes com responsabilidades específicas.
+<table>
+    <thead>
+        <tr>
+            <th>Componente</th>
+            <th>Responsabilidade típica</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Controller</code></td>
+            <td>Receber requisições e organizar as respostas HTTP.</td>
+        </tr>
+        <tr>
+            <td><code>Service</code></td>
+            <td>Executar regras de negócio e coordenar operações.</td>
+        </tr>
+        <tr>
+            <td><code>Repository</code></td>
+            <td>Consultar e persistir dados.</td>
+        </tr>
+        <tr>
+            <td><code>Model</code> ou <code>Entity</code></td>
+            <td>Representar dados e, dependendo do projeto, seu comportamento.</td>
+        </tr>
+        <tr>
+            <td><code>Validator</code></td>
+            <td>Centralizar ou implementar determinadas validações.</td>
+        </tr>
+    </tbody>
+</table>
+
+Cada componente possui métodos adequados à sua responsabilidade.
+
+Por exemplo, um serviço poderia disponibilizar:
+
+```bash
+public Usuario cadastrarUsuario(Usuario usuario) {
+    // Validar os dados.
+    // Aplicar as regras de negócio.
+    // Persistir o usuário.
+    // Retornar o resultado.
+}
+```
+A ideia é perceber que um método pode representar uma operação do sistema, como cadastrar um usuário, consultar um produto ou calcular o preço de um orçamento.
+
+**Importante:** você não precisa começar criando todas essas camadas. Primeiro, domine métodos, parâmetros, retornos, classes e objetos. Depois, a estrutura de um backend fará muito mais sentido.

@@ -241,10 +241,35 @@ Portanto:
 - Cálculo: numeros.length - 1.
   
 
+## Percorrendo arrays com for
+Imagine que você precisa exibir todos os elementos de um array.
+
+uma forma seria:
 ```bash 
+String[] nomes = {"Maria", "João", "Carlos"};
 
+System.out.println(nomes[0]);
+System.out.println(nomes[1]);
+System.out.println(nomes[2]);
 ```
+Mas já estudamos uma estrutura que repete instruções: o for.
 
 ```bash 
+public class Main {
 
+    public static void main(String[] args) {
+        String[] nomes = {"Maria", "João", "Carlos"};
+
+        for (int i = 0; i < nomes.length; i++) {
+            System.out.println(nomes[i]);
+        }
+    }
+}
 ```
+O laço continua enquanto i for menor que a quantidade de elementos.
+
+Como o array possui três posições, a condição será verdadeira para i = 0, i = 1 e i = 2.
+
+Quando i chegar a 3, o laço será encerrado.
+
+Em cada repetição, acessamos uma posição diferente.

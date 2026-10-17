@@ -1,5 +1,5 @@
-## Arrays 
-### O que é um array?
+# Arrays 
+## O que é um array?
 Um array é uma estrutura que permite armazenar vários elementos do mesmo tipo em uma única variável.
 
 ```bash 
@@ -121,3 +121,36 @@ String[] nomes = new String[3];
 As três posições começam com null, e não com uma string vazia.
 
 Essa diferença será importante quando você começar a trabalhar com validações.
+
+## Inicializando um array com valores
+Se você já conhece os valores que deseja armazenar, pode declará-los diretamente.
+
+```bash
+int[] numeros = {10, 20, 30, 40, 50};
+```
+Nesse caso, não precisamos informar a quantidade de posições separadamente. O Java determina o tamanho com base nos valores fornecidos.
+
+Podemos fazer o mesmo com textos:
+```bash
+String[] nomes = {"Maria", "João", "Carlos"};
+```
+Ou com números decimais:
+```bash
+double[] notas = {8.5, 7.0, 9.2};
+```
+
+Observe que todos os elementos de um array precisam ser compatíveis com o tipo declarado.
+
+Isto funciona:
+```bash
+int[] idades = {18, 20, 25};
+```
+Mas isto não funciona:
+```bash
+int[] dados = {18, "Maria", 25};
+```
+O problema é que "Maria" é uma String, enquanto o array foi declarado para armazenar valores int.
+
+Arrays comuns em Java possuem tamanho fixo após sua criação. Se você criar um array com cinco posições, ele continuará tendo cinco posições durante toda a sua existência.
+
+Mais adiante, estudaremos ArrayList, uma estrutura que permite adicionar e remover elementos de maneira mais flexível.

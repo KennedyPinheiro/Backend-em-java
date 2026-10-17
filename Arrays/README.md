@@ -421,3 +421,28 @@ Você poderá utilizá-lo para calcular:
 - O total de despesas.
 - A média de notas de uma turma.
 
+
+## Combinando arrays com métodos
+
+Observe a declaração do método:
+```bash 
+public static double calcularMedia(double[] notas)
+```
+Dentro do método, utilizamos um for-each:
+```bash 
+for (double nota : notas) {
+    soma += nota;
+}
+```
+A vantagem é que podemos reutilizar o método para diferentes arrays de notas, sem precisar reescrever o cálculo.
+```bash 
+double[] notasMaria = {8.0, 9.0, 7.0};
+double[] notasJoao = {6.0, 5.0, 8.0};
+
+System.out.println(calcularMedia(notasMaria));
+System.out.println(calcularMedia(notasJoao));
+```
+Cada chamada calcula a média do array fornecido.
+Uma observação: esse método pressupõe que o array tenha pelo menos um elemento.
+
+ Se recebermos um array vazio, a divisão será por zero em ponto flutuante e o resultado será NaN (not a number). Mais adiante, estudaremos formas de validar esses casos.

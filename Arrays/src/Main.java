@@ -1,23 +1,21 @@
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        double[] notas = {8.0, 7.5, 9.0, 6.5, 10.0};
 
-        int[] numeros = new int[5];
+        double media = calcularMedia(notas);
 
-        for (int i = 0; i < numeros.length; i++) {
-            System.out.print("Digite o " + (i + 1) + "º número: ");
-            numeros[i] = scanner.nextInt();
+        System.out.println("Média do aluno: " + media);
+    }
+
+    public static double calcularMedia(double[] notas) {
+        double soma = 0;
+
+        for (double nota : notas) {
+            soma += nota;
         }
 
-        System.out.println("\nNúmeros cadastrados:");
-
-        for (int numero : numeros) {
-            System.out.println(numero);
-        }
-
-        scanner.close();
+        return soma / notas.length;
     }
 }

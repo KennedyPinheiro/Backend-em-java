@@ -114,3 +114,36 @@ Nesse exemplo, o método recebe dois parâmetros:
 Os argumentos devem corresponder aos tipos e à ordem dos parâmetros.
 
 **Uma boa prática:** escolha nomes de parâmetros que deixem claro o que o método espera receber.
+
+## Métodos void: quando não precisamos retornar um valor
+Até agora, vimos métodos que recebem parâmetros e métodos que podem devolver resultados. Entretanto, alguns métodos existem apenas para executar uma ação.
+
+Para isso, utilizamos void.
+
+```bash
+public static void exibirBoasVindas() {
+    System.out.println("Bem-vindo ao sistema!");
+}
+```
+O void indica que o método não retorna um valor para quem o chamou.
+
+o metodo void pode receber parametros ,  e pode usar o return , mas  existe uma diferença.
+
+```bash 
+public static void verificarIdade(int idade) {
+
+    if (idade < 18) {
+        System.out.println("Menor de idade.");
+        return;
+    }
+
+    System.out.println("Maior de idade.");
+}
+```
+
+Nesse exemplo, o return encerra a execução do método naquele ponto.
+
+Se a idade for menor que 18, o método exibirá a primeira mensagem e terminará sem executar a segunda.
+Se a idade for 18 ou maior, continuará até a última instrução.
+
+**Atenção:**em um método void, utilizamos return; sem valor. Já em um método que retorna int, String ou outro tipo, precisamos devolver um valor compatível quando a execução exige um retorno.

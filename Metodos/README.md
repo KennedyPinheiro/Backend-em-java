@@ -210,3 +210,89 @@ public static boolean senhaValida(String senha) {
 }
 ```
 Quando uma condição já resulta em true ou false, experimente retorná-la diretamente. Isso ajuda a escrever código mais simples.
+
+## Métodos podem chamar outros métodos
+Em vez de fazer metodos gigantescos com varias lógicas dentro de si mesmo, podemos fazer uma separação dessas lógicas em outros metodos e chamar os mesmos dentro de um principal.
+
+```bash 
+public class Main {
+
+    public static void main(String[] args) {
+
+        String nome = "Kennedy";
+        String email = "kennedy@email.com";
+        String senha = "12345678";
+
+        boolean cadastroValido = validarCadastro(nome, email, senha);
+
+        if (cadastroValido) {
+            System.out.println("Cadastro válido!");
+        } else {
+            System.out.println("Cadastro inválido!");
+        }
+    }
+
+    public static boolean validarCadastro(
+            String nome,
+            String email,
+            String senha
+    ) {
+        return campoPreenchido(nome)
+                && campoPreenchido(email)
+                && senhaValida(senha);
+    }
+
+    public static boolean campoPreenchido(String valor) {
+        return valor != null && !valor.isBlank();
+    }
+
+    public static boolean senhaValida(String senha) {
+
+        if (senha == null) {
+            return false;
+        }
+
+        return senha.length() >= 8;
+    }
+}
+```
+**Como o programa funciona?**
+1. O método main() define os dados do cadastro.
+2. main() chama validarCadastro().
+3. validarCadastro() chama campoPreenchido() para verificar o nome.
+4. O mesmo método verifica o e-mail.
+5. Em seguida, chama senhaValida() para verificar a senha.
+6. Se todas as condições forem verdadeiras, validarCadastro() retorna true.
+7. O método main() utiliza o resultado para exibir a mensagem
+<table>
+    <thead>
+        <tr>
+            <th>Método</th>
+            <th>Responsabilidade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>main()</code></td>
+            <td>Executar o exemplo e controlar o fluxo principal.</td>
+        </tr>
+        <tr>
+            <td><code>validarCadastro()</code></td>
+            <td>Combinar as regras de validação.</td>
+        </tr>
+        <tr>
+            <td><code>campoPreenchido()</code></td>
+            <td>Verificar se um campo de texto foi preenchido.</td>
+        </tr>
+        <tr>
+            <td><code>senhaValida()</code></td>
+            <td>Verificar o tamanho mínimo da senha.</td>
+        </tr>
+    </tbody>
+</table>
+
+Essa organização permite alterar uma regra sem precisar reescrever todo o processo de cadastro.
+
+Por exemplo, se você precisar mudar a quantidade mínima de caracteres da senha, poderá modificar senhaValida() sem alterar a estrutura de validarCadastro().
+
+Vale lembrar que esse exemplo é didático. Um sistema real também precisaria validar o formato do e-mail, tratar dados de entrada e implementar outras regras de segurança.

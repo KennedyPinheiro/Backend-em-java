@@ -330,3 +330,94 @@ for (int i = 0; i < numeros.length; i++) {
 }
 ```
 
+## Trabalhando com arrays e Scanner
+Vamos utilizar o que aprendemos para criar um programa que recebe cinco números digitados pelo usuário.
+
+```bash 
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] numeros = new int[5];
+
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.print("Digite o " + (i + 1) + "º número: ");
+            numeros[i] = scanner.nextInt();
+        }
+
+        System.out.println("\nNúmeros cadastrados:");
+
+        for (int numero : numeros) {
+            System.out.println(numero);
+        }
+
+        scanner.close();
+    }
+}
+```
+```bash
+numeros[i] = scanner.nextInt();
+```
+Essa instrução recebe um número digitado pelo usuário e o armazena na posição indicada por i.
+
+Se o usuário digitar 15 durante a primeira repetição, teremos:
+
+Na segunda repetição, o valor será armazenado em numeros[1], e assim por diante.
+
+Por fim, utilizamos um for-each para exibir os valores:
+
+```bash 
+for (int numero : numeros) {
+    System.out.println(numero);
+}
+```
+Essa é uma estrutura bastante comum em aplicações que precisam armazenar e processar conjuntos de dados.
+
+## Calculando a média de várias notas
+
+Vamos avançar um pouco e aplicar os conceitos em um problema semelhante ao que você já resolveu na aula sobre métodos.
+
+Imagine que um aluno possui cinco notas.
+
+Em vez de criar cinco variáveis independentes, podemos utilizar um array.
+
+
+```bash
+double[] notas = {8.0, 7.5, 9.0, 6.5, 10.0};
+```
+Para calcular a média, precisamos somar todas as notas e dividir pela quantidade de elementos.
+
+Podemos fazer isso utilizando um for:
+```bash
+public class Main {
+
+    public static void main(String[] args) {
+        double[] notas = {8.0, 7.5, 9.0, 6.5, 10.0};
+
+        double soma = 0;
+
+        for (int i = 0; i < notas.length; i++) {
+            soma += notas[i];
+        }
+
+        double media = soma / notas.length;
+
+        System.out.println("Soma: " + soma);
+        System.out.println("Média: " + media);
+    }
+}
+```
+Como existem cinco notas:
+
+Esse padrão de percorrer um array e acumular valores é muito comum.
+
+Você poderá utilizá-lo para calcular:
+- A soma de vendas.
+- O valor médio de compras.
+- A média de avaliações.
+- O total de despesas.
+- A média de notas de uma turma.
+

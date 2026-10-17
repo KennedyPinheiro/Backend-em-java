@@ -154,3 +154,59 @@ O problema é que "Maria" é uma String, enquanto o array foi declarado para arm
 Arrays comuns em Java possuem tamanho fixo após sua criação. Se você criar um array com cinco posições, ele continuará tendo cinco posições durante toda a sua existência.
 
 Mais adiante, estudaremos ArrayList, uma estrutura que permite adicionar e remover elementos de maneira mais flexível.
+
+## Acessando os elementos de um array
+Para acessar um elemento, utilizamos o nome do array seguido do índice entre colchetes.
+
+
+```bash 
+String[] nomes = {"Maria", "João", "Carlos"};
+```
+
+```bash 
+System.out.println(nomes[0]);
+System.out.println(nomes[1]);
+System.out.println(nomes[2]);
+```
+O número dentro dos colchetes indica qual elemento queremos acessar.
+
+### Modificando um elemento
+Também podemos modificar os valores armazenados.
+```bash 
+String[] nomes = {"Maria", "João", "Carlos"};
+
+nomes[1] = "Pedro";
+
+System.out.println(nomes[1]);
+```
+O elemento "João", que estava no índice 1, foi substituído por "Pedro".
+
+Essa operação não adicionou uma nova posição. Apenas modificou o valor de uma posição existente.
+
+### Cuidado com os índices inválidos!
+
+```bash 
+int[] numeros = {10, 20, 30};
+
+System.out.println(numeros[3]);
+```
+O que você acha que acontecerá?
+
+O array possui três elementos, nos índices 0, 1 e 2.
+O índice 3 não existe.
+
+Portanto, o Java lançará uma exceção chamada:
+
+**ArrayIndexOutOfBoundsException**
+
+Esse erro aparece quando tentamos acessar um índice fora dos limites do array.
+
+Lembre-se:
+
+Se um array possui n elementos, seus índices válidos vão de 0 até n - 1.
+
+
+
+```bash 
+
+```

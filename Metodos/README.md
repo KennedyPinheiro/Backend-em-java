@@ -417,3 +417,60 @@ O método acessa os atributos do objeto e exibe seus valores.
 Utilize-o quando o comportamento realmente pertencer à classe e não depender do estado de um objeto específico.
 
 No exemplo de Usuario, cada pessoa possui seu próprio nome e sua própria idade. Portanto, faz sentido que apresentar() seja um método de instância.
+
+## Métodos e o encapsulamento
+
+Apesar de conseguirmos alterar os atributos diretamente , não é a melhor abordagem para uma classe que precisa controlar seus próprios dados.
+
+Uma alternativa é utilizar atributos privados e métodos públicos para interagir com eles.
+
+```bash 
+public class Usuario {
+
+    private String nome;
+    private int idade;
+
+    public void definirNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String obterNome() {
+        return nome;
+    }
+}
+```
+**O que significa private?**
+O atributo só pode ser acessado diretamente de dentro da própria classe Usuario, respeitadas as regras de acesso da linguagem.
+
+Outras classes não poderão executar normalmente:
+```bash 
+usuario.nome = "Exemplo";
+```
+**O que significa this.nome = nome?**
+```bash
+public void definirNome(String nome) {
+    this.nome = nome;
+}
+```
+
+Existem dois elementos com o mesmo nome:
+- this.nome: o atributo pertencente ao objeto atual.
+- nome: o parâmetro recebido pelo método.
+A instrução copia o valor do parâmetro para o atributo do objeto.
+
+
+```bash
+usuario.definirNome("Exemplo");
+```
+
+Os métodos definirNome() e obterNome() são exemplos de métodos conhecidos como setters e getters.
+- Setter: permite definir ou alterar um valor.
+- Getter: permite consultar um valor.
+  
+Mas não precisam existir para todos os atributos. Em um projeto bem estruturado, os métodos devem atender às necessidades da classe, permitindo que ela controle suas regras.
+
+O método recebe "Exemplo" e o armazena no atributo nome.
+
+Nesse caso, o método não apenas atribui um valor: ele protege uma regra da classe.
+
+Esse é um exemplo prático de como métodos ajudam a controlar o comportamento dos objetos.

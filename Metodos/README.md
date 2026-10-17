@@ -147,3 +147,51 @@ Se a idade for menor que 18, o método exibirá a primeira mensagem e terminará
 Se a idade for 18 ou maior, continuará até a última instrução.
 
 **Atenção:**em um método void, utilizamos return; sem valor. Já em um método que retorna int, String ou outro tipo, precisamos devolver um valor compatível quando a execução exige um retorno.
+
+## Métodos que retornam valores com return
+
+Metodos que utilizam alguma tipagem fora void , como int , string , utilizam a informação recebida como parametro e após efetuar a ação dentro do metodo faz um retorno.
+
+Exemplo ao somar , recebendo como parametro dois números , utiliza esses valores no calculo e retorna o resultado desse calculo.
+
+### Diferença entre void e return 
+
+- Exemplo A — Apenas exibe o resultado
+
+```bash 
+public static void somarEExibir(int a, int b) {
+    System.out.println(a + b);
+}
+```
+- Exemplo B — Retorna o resultado
+```bash
+public static int somar(int a, int b) {
+    return a + b;
+}
+```
+No primeiro exemplo, o método exibe o resultado diretamente.
+
+No segundo, o método devolve o resultado para que o código que o chamou decida o que fazer com ele.
+
+considerando o uso do segundo , com base no retorno dele podemos utilizar a resposta dele em outro metodo , ou outro campo.
+
+### Outros tipos de retorno
+
+- Texto
+```bash 
+public static String obterNome() {
+    return "Kennedy";
+}
+```
+- Decimal
+```bash 
+public static double calcularMedia(double nota1, double nota2) {
+    return (nota1 + nota2) / 2;
+}
+```
+- Valor lógico
+```bash 
+public static boolean ehMaiorDeIdade(int idade) {
+    return idade >= 18;
+}
+```

@@ -205,7 +205,45 @@ Lembre-se:
 
 Se um array possui n elementos, seus índices válidos vão de 0 até n - 1.
 
+### Descobrindo o tamanho com length
+Mas e se não soubermos quantos elementos existem no array?
 
+```bash 
+int[] numeros = {10, 20, 30, 40, 50};
+
+System.out.println(numeros.length);
+```
+A propriedade length informa a quantidade de posições do array.
+
+**Correto**
+```bash 
+numeros.length
+```
+**Incorreto**
+```bash 
+numeros.length()
+```
+Isso acontece porque length, em arrays, é uma propriedade, não um método.
+
+```bash 
+int[] numeros = {10, 20, 30, 40, 50};
+
+int ultimoElemento = numeros[numeros.length - 1];
+
+System.out.println(ultimoElemento);
+```
+Por que subtraímos 1?
+
+Porque o tamanho é 5, mas os índices começam em 0.
+Portanto:
+- Tamanho: 5.
+- Último índice: 4.
+- Cálculo: numeros.length - 1.
+  
+
+```bash 
+
+```
 
 ```bash 
 

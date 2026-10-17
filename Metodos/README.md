@@ -296,3 +296,47 @@ Essa organização permite alterar uma regra sem precisar reescrever todo o proc
 Por exemplo, se você precisar mudar a quantidade mínima de caracteres da senha, poderá modificar senhaValida() sem alterar a estrutura de validarCadastro().
 
 Vale lembrar que esse exemplo é didático. Um sistema real também precisaria validar o formato do e-mail, tratar dados de entrada e implementar outras regras de segurança.
+
+## Sobrecarga de métodos: method overloading 
+Em Java, é posssivel declarar métodos com o mesmo nome, desde que suas listas de parâmetros sejam diferentes.
+
+Esse recurso é chamado de **sobrecarga de métodos** (method overloading).
+
+```bash 
+public static int somar(int a, int b) {
+    return a + b;
+}
+
+public static int somar(int a, int b, int c) {
+    return a + b + c;
+}
+```
+
+Os dois métodos se chamam somar, mas recebem quantidades diferentes de parâmetros.
+
+O Java identifica qual método utilizar com base nos argumentos fornecidos.
+
+Também podemos sobrecarregar métodos utilizando tipos diferentes:
+```bash 
+public static int somar(int a, int b) {
+    return a + b;
+}
+
+public static double somar(double a, double b) {
+    return a + b;
+}
+```
+### Uma regra importante
+Não podemos criar duas versões de um método que diferem somente pelo tipo de retorno.
+
+isto não é permitido:
+```bash 
+public static int calcular(int numero) {
+    return numero * 2;
+}
+
+public static double calcular(int numero) {
+    return numero * 2.0;
+}
+```
+As duas assinaturas possuem o mesmo nome e os mesmos parâmetros. O Java não consegue distingui-las pela chamada.

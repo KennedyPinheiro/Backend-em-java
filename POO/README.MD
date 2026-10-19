@@ -47,3 +47,5 @@ Uma classe sendo colocada de forma rudimentar atua como  um molde. Uma classe de
 Apartir dessa classe pode-se criar um objeto. Quando dois objetos são criados oque diferencia um do outro são os seus atributos. 
 
 Quando à modelagem da classe , a mesma não é estatica , caso a classe no futuro viesse a ter algum atributo ou metodo adicionado e que não foram especificados numa primeira modelagem.  Essa alteração automaticamente estaria disponivel para que todos os objetos tenham acesso a estes novos recursos.
+
+### Atributo e Método

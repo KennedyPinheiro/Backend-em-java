@@ -40,7 +40,7 @@ Nesse exemplo:
 - Atributos: são as características de cada carro.
 - Métodos: são as ações que cada carro pode executar.
 Em Java, a classe funciona como um modelo que podemos utilizar para criar diferentes objetos.
-   
+    
 ### Classe e Objeto
 Uma classe sendo colocada de forma rudimentar atua como  um molde. Uma classe define todos os atributos e comportamentos(metodos) comuns compartilhados por um tipo de objeto.
 

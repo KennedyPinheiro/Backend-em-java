@@ -19,6 +19,8 @@ public class Main {
                 soma += matriz[i][j];
             }
         }
+         
+
 
         return soma;
     }
